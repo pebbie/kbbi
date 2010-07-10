@@ -36,10 +36,6 @@ function $(ename){
 }
 
 function getlist(shurl){
-	if (shurl.length==0) {
-		alert("masukkan kata yang dicari");
-		return;
-	}
 	$("result").innerHTML = "";
 	var req = new XMLHttpRequest();
 	req.onreadystatechange = function(){
@@ -54,7 +50,6 @@ function getlist(shurl){
 			for (var i=0,c;c=e.childNodes[i];i++) if (c.tagName=='DIV'){e = c;break;}
 			//alert(e.innerHTML);
 			for (var i=0,c;c=e.childNodes[i];i++) if (c.tagName!=undefined){e = c;break;}
-			//alert(e.innerHTML);
 			e = e.childNodes[1].childNodes[1].childNodes[0].childNodes[1].childNodes[1].childNodes[1].childNodes[1].childNodes[3].childNodes[1];
 			//for (var i=0,c;c=e.childNodes[i];i++) if (c.tagName=='P'){e = c;break;}
 			for (var i=0,c;c=e.childNodes[i];i++) if (c.tagName=='LI'){getlong(c.childNodes[0].innerHTML);}
@@ -73,10 +68,6 @@ function getlist(shurl){
 }
 
 function getlong(shurl){
-	if (shurl.length==0) {
-		alert("masukkan lema yang dicari");
-		return;
-	}
 	$("result").innerHTML = "";
 	var req = new XMLHttpRequest();
 	req.onreadystatechange = function(){
@@ -107,10 +98,6 @@ function getlong(shurl){
 }
 
 function getkateglo(shurl){
-	if (shurl.length==0) {
-		alert("masukkan lema yang dicari");
-		return;
-	}
 	$("rkat").innerHTML = "";
 	var req = new XMLHttpRequest();
 	req.onreadystatechange = function(){
@@ -122,6 +109,9 @@ function getkateglo(shurl){
 				tmp += '<li>'+o.kateglo.definition[i].def_text+'</li>';
 			}
 			tmp += "</ol>";
+			for(var i=0; i<o.kateglo.root.length; ++i){
+				getlist(o.kateglo.root[i].root_phrase);
+			}
 			$("rkat").innerHTML = showvalue(o.kateglo.phrase+' ('+o.kateglo.lex_class_name+')', tmp);
 		}
 	};
@@ -138,7 +128,11 @@ function showvalue(key, value){
 
 function submitform(){
 	var url = document.getElementById("url").value;
-	//getkateglo(url);
+	if (url.length==0) {
+		alert("masukkan lema yang dicari");
+		return;
+	}
+	getkateglo(url);
 	getlist(url);
 	return false;
 }
@@ -149,7 +143,7 @@ function submitform(){
 	kata <input type="text" name="url" id="url"/>
 	<input type="submit" value="cari" onclick="return submitform();"/>
 </form>
-<!--<div id="rkat"></div>-->
+<div id="rkat"></div>
 <div id="result"></div>
 </body>
 </html>
