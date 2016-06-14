@@ -1,6 +1,7 @@
 {
+  "manifest_version": 2,
   "name": "KBBI",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "KBBI, kamus besar bahasa Indonesia. toolbar icon",
   "browser_action": {
     "default_icon": "icon.png",
@@ -8,7 +9,7 @@
   },
   "icons": {"48": "icon.png"},
   "permissions": [
-		"http://www.bahtera.org/kateglo/*",
-        "http://pusatbahasa.diknas.go.id/*"
+		"http://kateglo.com/*",
+        "http://badanbahasa.kemdikbud.go.id/*"
     ]
 }
