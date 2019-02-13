@@ -1,15 +1,14 @@
 {
   "manifest_version": 2,
   "name": "KBBI",
-  "version": "1.0.5",
-  "description": "KBBI, kamus besar bahasa Indonesia. toolbar icon",
+  "version": "1.1.0",
+  "description": "cari definisi kata menggunakan Kateglo dan KBBI, kamus besar bahasa Indonesia. toolbar icon",
   "browser_action": {
     "default_icon": "icon.png",
     "default_popup": "popup.html"
   },
   "icons": {"48": "icon.png"},
   "permissions": [
-		"http://kateglo.com/*",
-        "http://badanbahasa.kemdikbud.go.id/*"
+		  "http://kateglo.com/*"
     ]
 }
