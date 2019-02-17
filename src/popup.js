@@ -77,3 +77,10 @@ function submitform(){
 
 $('btn-submit').addEventListener('click', submitform)
 $('url').addEventListener('keypress', keyhandler)
+
+chrome.tabs.executeScript( {
+  code: "window.getSelection().toString();"
+}, function(selection) {
+	if(selection.length>0)
+  $("url").value = selection[0].trim();
+});

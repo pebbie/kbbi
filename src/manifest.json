@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "KBBI",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "cari definisi kata menggunakan Kateglo dan KBBI, kamus besar bahasa Indonesia. toolbar icon",
   "browser_action": {
     "default_icon": "icon.png",
@@ -9,6 +9,7 @@
   },
   "icons": {"48": "icon.png"},
   "permissions": [
-		  "http://kateglo.com/*"
+		  "http://kateglo.com/*",
+      "activeTab"
     ]
 }
